@@ -10,12 +10,23 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- important for responsibe website  -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        overflow-x: auto; /* Horizontal scrolling enabled */
+      }
+    </style>
   </head>
   <body>
     <!-- start header section  -->
     <header>
-      <section class="min-h-svh bg-[#0D6EFD0D] mt-7">
-        <div class="flex justify-between ml-20 mr-20 pt-10">
+      <section class="min-h-screen bg-[#0D6EFD0D] mt-7">
+        <div class="flex justify-between px-10 pt-10 container mx-auto">
           <div>
             <p class="text-black font-medium">Hot Gadgets</p>
           </div>
@@ -28,28 +39,36 @@
             </button>
           </div>
         </div>
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center mx-auto">
           <div>
-            <h2 class="text-center text-3xl text-black font-bold mb-3">Apple Iphone 13 Pro Max</h2>
+            <h2 class="text-center text-3xl text-black font-bold mb-3">
+              Apple iPhone 13 Pro Max
+            </h2>
             <p class="text-center text-sm text-[#706F6F]">
               There are many variations of passages of Lorem Ipsum available,
               but the majority <br />
-              <pre class="text-[#706F6F] text-sm">    have suffered alteration in some form, by injected humou.</pre>
+              <span class="text-[#706F6F] text-sm">
+                have suffered alteration in some form, by injected humor.
+              </span>
             </p>
             <div class="text-center mt-3">
-                <button
-              onclick="alert('The task is still pending')"
-              class="btn btn-outline btn-primary text-white"
-            >
-              Buy Now
-            </button>
+              <button
+                onclick="alert('The task is still pending')"
+                class="btn btn-outline btn-primary text-white"
+              >
+                Buy Now
+              </button>
             </div>
           </div>
         </div>
         <div class="flex justify-center">
-            <div>
-                <img class="w-[1200px]" src="image/iPhone-Symbol.png" alt="" srcset="">
-            </div>
+          <div>
+            <img
+              class="w-full max-w-[1200px]"
+              src="image/iPhone-Symbol.png"
+              alt="iPhone Symbol"
+            />
+          </div>
         </div>
       </section>
     </header>
