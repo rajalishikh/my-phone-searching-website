@@ -1,5 +1,5 @@
-const bring_data=async()=>{
-    const bring_data=await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+const bring_data=async(search_name)=>{
+    const bring_data=await fetch(`https://openapi.programming-hero.com/api/phones?search=${search_name}`);
     const con_json=await bring_data.json();
     show_data(con_json.data)
 }
@@ -18,10 +18,11 @@ function show_data(bring){
       class="rounded-xl" />
   </figure>
   <div class="card-body items-center text-center">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <h2 class="card-title">${data.phone_name}</h2>
+    <p>There are many variations of passages of available, but the majority have suffered</p>
+    <p>$ 999</p>
     <div class="card-actions">
-      <button class="btn btn-primary">Buy Now</button>
+      <button class="btn btn-primary">Show details</button>
     </div>
   </div>
 </div>
@@ -34,4 +35,8 @@ function show_data(bring){
 
 }
 
-bring_data()
+function search_your_phone(){
+    const find_search=document.getElementById('input')
+    const man=find_search.value;
+    bring_data(man)
+}
