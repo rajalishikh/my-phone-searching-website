@@ -1,3 +1,4 @@
+// bring the data using api 
 const bring_data=async(search_name)=>{
     const bring_data=await fetch(`https://openapi.programming-hero.com/api/phones?search=${search_name}`);
     const con_json=await bring_data.json();
@@ -5,6 +6,8 @@ const bring_data=async(search_name)=>{
 }
 // show the data 
 function show_data(bring){
+  console.log(bring.length)
+  bring=bring.slice(0,12)
     const bring_container=document.getElementById('container_all_data')
     for(let data of bring){
         console.log(data)
@@ -34,6 +37,7 @@ function show_data(bring){
     }
 
 }
+// search your phone 
 
 function search_your_phone(){
     const find_search=document.getElementById('input')
