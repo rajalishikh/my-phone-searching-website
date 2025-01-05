@@ -7,8 +7,16 @@ const bring_data=async(search_name)=>{
 // show the data 
 function show_data(bring){
   console.log(bring.length)
+  const bring_data=document.getElementById('show_all')
+  if(bring.length > 12){
+    bring_data.classList.remove('hidden')
+  }
+  else{
+    bring_data.classList.add('hidden')
+  }
   bring=bring.slice(0,12)
-    const bring_container=document.getElementById('container_all_data')
+    const bring_container=document.getElementById('container_all_data');
+    bring_container.textContent='';
     for(let data of bring){
         console.log(data)
         const structure=document.createElement('div')
