@@ -1,22 +1,28 @@
 // bring the data using api 
-const bring_data=async(search_name)=>{
+const bring_data=async(search_name,show_all)=>{
     const bring_data=await fetch(`https://openapi.programming-hero.com/api/phones?search=${search_name}`);
     const con_json=await bring_data.json();
-    show_data(con_json.data)
+    show_data(con_json.data,show_all)
 }
 // show the data 
-function show_data(bring){
+function show_data(bring,show_all){
   console.log(bring.length)
   const bring_data=document.getElementById('show_all');
   // set the condition when total data is more then 12 add hidden and remobe hidden
-  if(bring.length > 12){
+  if(bring.length > 12 && !show_all){
     bring_data.classList.remove('hidden')
   }
   else{
     bring_data.classList.add('hidden')
   }
   // limit the data 
-  bring=bring.slice(0,12)
+  console.log(show_all)
+  // show all data 
+  if(!show_all){
+    bring=bring.slice(0,12)
+
+  }
+  
     const bring_container=document.getElementById('container_all_data');
     // refresh the  data section 
     bring_container.textContent='';
@@ -52,14 +58,21 @@ function show_data(bring){
 }
 
 // search your phone 
-function search_your_phone(){
+function search_your_phone(show_all_data){
    add_loader(true)
 
     const find_search=document.getElementById('input')
     const man=find_search.value;
-    bring_data(man)
+    bring_data(man,show_all_data)
 }
 
+// SHOW ALL DATA 
+
+const show_all=()=>{
+  search_your_phone(true)
+}
+
+// add loader 
 const add_loader= (is_loading) => {
   const loader_part=document.getElementById('loader_part')
   if(is_loading){
