@@ -43,7 +43,7 @@ function show_data(bring,show_all){
     <p>There are many variations of passages of available, but the majority have suffered</p>
     <p>$ 999</p>
     <div class="card-actions">
-      <button class="btn btn-primary">Show details</button>
+      <button onclick="show_details('${data.slug}')" class="btn btn-primary">Show details</button>
     </div>
   </div>
 </div>
@@ -70,6 +70,21 @@ function search_your_phone(show_all_data){
 
 const show_all=()=>{
   search_your_phone(true)
+}
+
+// show details 
+const show_details=async(id)=>{
+  const bring_show_details=await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+  const json_format=await bring_show_details.json();
+  details2(json_format.data)
+
+}
+
+// show details part 2 
+
+function details2(details){
+  my_modal_5.showModal()
+
 }
 
 // add loader 
