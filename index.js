@@ -66,6 +66,7 @@ function search_your_phone(show_all_data){
     
     const man=find_search.value;
     
+    
    
     bring_data(man,show_all_data)
 }
@@ -99,7 +100,7 @@ function details2(details){
             <p class="py-4">storage ${details.mainFeatures?.
               storage}</p>
             <p class="py-4">displaySize:${details.mainFeatures?.displaySize}</p>
-            <p class="py-4">releaseDate:${details.releaseDate}</p>
+            <p class="py-4">releaseDate:${details.releaseDate || 'No data'}</p>
             
             <div class="modal-action">
               <form method="dialog">
@@ -124,5 +125,5 @@ const add_loader= (is_loading) => {
   }
 
 }
-bring_data('samsung')
+
 
