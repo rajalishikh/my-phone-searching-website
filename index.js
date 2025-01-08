@@ -64,11 +64,18 @@ function search_your_phone(show_all_data){
 
     const find_search=document.getElementById('input')
     
-    const man=find_search.value;
+    const man=find_search.value.toLowerCase();
+    if(man ==='samsung' || man ==='apple' || man === 'watch'){
+
+          bring_data(man,show_all_data)
+    }
+    else{
+      alert('Search the right name')
+    }
     
     
    
-    bring_data(man,show_all_data)
+    
 }
 
 // SHOW ALL DATA 
