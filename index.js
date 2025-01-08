@@ -4,6 +4,7 @@ const bring_data=async(search_name,show_all)=>{
     const con_json=await bring_data.json();
     show_data(con_json.data,show_all)
 }
+
 // show the data 
 function show_data(bring,show_all){
   console.log(bring.length)
@@ -62,7 +63,10 @@ function search_your_phone(show_all_data){
    add_loader(true)
 
     const find_search=document.getElementById('input')
+    
     const man=find_search.value;
+    
+   
     bring_data(man,show_all_data)
 }
 
@@ -83,7 +87,28 @@ const show_details=async(id)=>{
 // show details part 2 
 
 function details2(details){
+  console.log(details)
   my_modal_5.showModal()
+  const find_box=document.getElementById('modal_box');
+ 
+  find_box.innerHTML=`
+  <img src=${details.image} alt="" srcset="">
+  <h3 class="text-lg font-bold">${details.slug}</h3>
+  
+            <p class="py-4">Name ${details.name}</p>
+            <p class="py-4">storage ${details.mainFeatures?.
+              storage}</p>
+            <p class="py-4">displaySize:${details.mainFeatures?.displaySize}</p>
+            <p class="py-4">releaseDate:${details.releaseDate}</p>
+            
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close</button>
+              </form>
+  `
+  
+
 
 }
 
@@ -99,4 +124,5 @@ const add_loader= (is_loading) => {
   }
 
 }
+bring_data('samsung')
 
