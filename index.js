@@ -30,6 +30,8 @@ function show_data(bring,show_all){
     // show the data 
     for(let data of bring){
         console.log(data)
+        
+
         const structure=document.createElement('div')
         structure.innerHTML=`
         <div class="card bg-base-100 w-96 shadow-xl">
@@ -42,7 +44,9 @@ function show_data(bring,show_all){
   <div class="card-body items-center text-center">
     <h2 class="card-title">${data.phone_name}</h2>
     <p>There are many variations of passages of available, but the majority have suffered</p>
-    <p>$ 999</p>
+    
+    
+    }
     <div class="card-actions">
       <button onclick="show_details('${data.slug}')" class="btn btn-primary">Show details</button>
     </div>
@@ -103,11 +107,24 @@ function details2(details){
   <img src=${details.image} alt="" srcset="">
   <h3 class="text-lg font-bold">${details.slug}</h3>
   
-            <p class="py-4">Name ${details.name}</p>
-            <p class="py-4">storage ${details.mainFeatures?.
+            <p class="py-4"><span class="text-lg font-bold">Name</span> ${details.name}</p>
+            <p class="py-4"><span class="text-lg font-bold">Storage</span> ${details.mainFeatures?.
               storage}</p>
-            <p class="py-4">displaySize:${details.mainFeatures?.displaySize}</p>
-            <p class="py-4">releaseDate:${details.releaseDate || 'No data'}</p>
+            <p class="py-4"><span class="text-lg font-bold">DisplaySize:</span> ${details.mainFeatures?.displaySize}</p>
+            <p class="py-4"><span class="text-lg font-bold">ReleaseDate:</span> ${details.releaseDate || 'No data'}</p>
+            <p> <span class="text-lg font-bold">Price:</span>$999 </p>
+            
+            <ul>
+            <span class="text-lg font-bold">Sensors:</span>
+            <li>${details.mainFeatures?.sensors[0] || 'No Data' }</li>
+            <li>${details.mainFeatures?.sensors[1] || 'No Data'}</li>
+            <li>${details.mainFeatures?.sensors[2] || 'No Data' }</li>
+            <li>${details.mainFeatures?.sensors[3] || 'No Data'}</li>
+            <li>${details.mainFeatures?.sensors[4] || 'No Data'}</li>
+            <li>${details.mainFeatures?.sensors[5] || 'No Data'}</li>
+            </ul>
+            
+          
             
             <div class="modal-action">
               <form method="dialog">
